@@ -1,6 +1,6 @@
 import z from "zod";
 import { Next, Req, Res } from "../../types";
-import { ParamsToGetUsers } from "../services/getUsersService";
+import { ParamsToGetUsers } from "../service/getUsersService";
 
 export const getUsersDto = (req: Requ, res: Res, next: Next) => {
   try {

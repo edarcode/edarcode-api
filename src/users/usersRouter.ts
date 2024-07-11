@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { createUserController } from "./controllers/createUserController";
-import { getUsersController } from "./controllers/getUsersController";
+import { createUserController } from "./controller/createUserController";
+import { getUsersController } from "./controller/getUsersController";
 import { createUserDto } from "./dto/createUserDto";
 import { getUsersDto } from "./dto/getUsersDto";
 

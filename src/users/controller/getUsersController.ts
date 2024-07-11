@@ -1,6 +1,6 @@
 import { Res } from "../../types";
 import { ReqWithParamsGetUsers } from "../dto/getUsersDto";
-import { getUsersService } from "../services/getUsersService";
+import { getUsersService } from "../service/getUsersService";
 
 type Requ = ReqWithParamsGetUsers;
 

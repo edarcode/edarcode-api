@@ -1,5 +1,5 @@
 import { Req, Res } from "../../types";
-import { createUserService } from "../services/createUserService";
+import { createUserService } from "../service/createUserService";
 
 export const createUserController = async (req: Req, res: Res) => {
   try {
