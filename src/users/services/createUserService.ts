@@ -1,3 +1,4 @@
+import { Role } from "@prisma/client";
 import { connDb } from "../../db/connDb";
 
 export const createUserService = async (params: Params) => {
@@ -10,4 +11,6 @@ type Params = {
   name: string;
   email: string;
   password: string;
+  isAuth?: boolean;
+  role?: Role;
 };
