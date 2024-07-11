@@ -30,7 +30,7 @@ DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=public"
 por lo general hay datos por defecto utilizando postgreSQL, solo tendrías que cambiar PASSWORD y DATABASE
 
 ```
-postgresql://postgres:PASSWORD@localhost:5432/DATABASE?schema=public
+DATABASE_URL="postgresql://postgres:PASSWORD@localhost:5432/DATABASE?schema=public"
 ```
 
 ## Scripts

@@ -2,7 +2,7 @@ import { Prisma } from "@prisma/client";
 import { connDb } from "../../db/connDb";
 
 export const getUsersService = async (params: Params = {}) => {
-  const { page = 1, take = 10, name } = params;
+  const { page = 1, take = 6, name } = params;
 
   const where: Where = {
     name: { contains: name, mode: "insensitive" },

@@ -5,6 +5,10 @@ import { getUsersService } from "../services/getUsersService";
 type Requ = ReqWithParamsGetUsers;
 
 export const getUsersController = async (req: Requ, res: Res) => {
-  const allUsers = await getUsersService(req.paramsToGetUsers);
-  res.json(allUsers);
+  try {
+    const allUsers = await getUsersService(req.paramsToGetUsers);
+    res.json(allUsers);
+  } catch (error) {
+    res.json(error);
+  }
 };

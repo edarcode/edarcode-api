@@ -1,27 +1,9 @@
-import { fakerES as faker } from "@faker-js/faker";
+import dotenv from "dotenv";
+dotenv.config();
+
 import { Role } from "@prisma/client";
-import { getRandomStr } from "../utils/getRamdonStr";
+import z from "zod";
 import { connDb } from "./connDb";
-
-const SIZE_DATA = 20;
-const usernames = faker.helpers.uniqueArray(faker.internet.userName, SIZE_DATA);
-
-const fakerUsers = Array.from({ length: SIZE_DATA }).map((_, i) => {
-  const user = {
-    id: faker.string.uuid(),
-    username: usernames[i].toLowerCase().replace(/[^a-zA-Z0-9]/g, ""),
-    name: faker.person.firstName().toLowerCase(),
-    isActive: faker.datatype.boolean(),
-    role: getRandomStr([Role.ADMIN, Role.CLIENT]) as Role,
-  };
-  return user;
-});
-
-async function seedDb() {
-  await connDb.user.createMany({
-    data: fakerUsers,
-  });
-}
 
 seedDb()
   .catch((e) => {
@@ -31,3 +13,35 @@ seedDb()
   .finally(() => {
     connDb.$disconnect();
   });
+
+async function seedDb() {
+  const boss = {
+    name: process.env.BOSS_NAME,
+    email: process.env.BOSS_EMAIL,
+    password: process.env.BOSS_PASSWORD,
+    isAuth: true,
+    role: Role.BOSS,
+  };
+
+  const schemaBoss = z.object({
+    name: z.string(),
+    email: z.string(),
+    password: z.string(),
+    isAuth: z.boolean(),
+    role: z.enum([Role.BOSS]),
+  });
+
+  const { success, data } = schemaBoss.safeParse(boss);
+
+  if (!success) {
+    console.log(
+      "\x1b[31m%s\x1b[0m",
+      "falta info (.env) para crear usuario BOSS"
+    );
+    return;
+  }
+
+  await connDb.user.create({
+    data: data,
+  });
+}
