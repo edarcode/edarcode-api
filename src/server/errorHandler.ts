@@ -5,7 +5,8 @@ export const errorHandler: ErrorHandler = (error, _req, res, _next) => {
   const { status = 500, name, code } = error;
 
   if (name === "PrismaClientKnownRequestError") {
-    const errCode = ERROR_CODES_DB[code as keyof typeof ERROR_CODES_DB];
+    const keyCode = code as keyof typeof ERROR_CODES_DB;
+    const errCode = ERROR_CODES_DB[keyCode];
     const status = errCode?.status || 400;
     const msg = errCode?.msg || error;
     return res.status(status).json({ msg });
