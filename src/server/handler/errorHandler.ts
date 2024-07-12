@@ -1,5 +1,5 @@
-import { ERROR_CODES_DB } from "../db/errCodes";
-import { ErrorHandler } from "../types";
+import { ERROR_CODES_DB } from "../../db/errCodes";
+import { ErrorHandler } from "../../types";
 
 export const errorHandler: ErrorHandler = (error, _req, res, _next) => {
   const { status = 500, name, code } = error;

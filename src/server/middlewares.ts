@@ -1,8 +1,8 @@
 import cors from "cors";
 import express from "express";
-import { server } from "./server";
+import { App } from "../types";
 
-export const middlewares = () => {
+export const middlewares = (server: App) => {
   server.use(cors());
   server.use(express.json());
 };

@@ -1,5 +1,6 @@
-import { NextFunction, Request, Response } from "express";
+import { Application, NextFunction, Request, Response } from "express";
 
+export type App = Application;
 export type Req = Request;
 export type Res = Response;
 export type Next = NextFunction;
