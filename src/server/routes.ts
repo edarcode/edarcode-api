@@ -1,6 +1,6 @@
 import { authRouter } from "../auth/authRouter";
 import { App } from "../types";
-import { usersRouter } from "../users/usersRouter";
+import { usersRouter } from "../user/usersRouter";
 import { welcomeRouter } from "../welcome/welcomeRouter";
 
 export const routes = (server: App) => {

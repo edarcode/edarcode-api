@@ -1,5 +1,5 @@
 import { Controller, Uuid } from "../../types";
-import { deleteUserService } from "../service/deleteUserService";
+import { deleteUserService } from "./deleteUserService";
 
 export const deleteUserController: Controller = async (req, res, next) => {
   try {

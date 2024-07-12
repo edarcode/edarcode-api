@@ -1,5 +1,5 @@
 import { Controller, Uuid } from "../../types";
-import { updateUserService } from "../service/updateUserService";
+import { updateUserService } from "./updateUserService";
 
 export const updateUserController: Controller = async (req, res, next) => {
   try {

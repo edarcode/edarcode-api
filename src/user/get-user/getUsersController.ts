@@ -1,5 +1,5 @@
 import { Controller } from "../../types";
-import { getUsersService } from "../service/getUsersService";
+import { getUsersService } from "./getUsersService";
 
 export const getUsersController: Controller = async (_req, res, next) => {
   try {
