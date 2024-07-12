@@ -10,6 +10,8 @@ export const deleteUserDto: Middleware = (req, res, next) => {
   }
 };
 
-const schema = z.object({
-  id: z.string().uuid(),
-});
+const schema = z
+  .object({
+    id: z.string().uuid(),
+  })
+  .strict();
