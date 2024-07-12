@@ -1,5 +1,5 @@
 import express from "express";
-import { handlers } from "./handler/handlers";
+import { handlers } from "./handlers";
 import { middlewares } from "./middlewares";
 import { routes } from "./routes";
 
