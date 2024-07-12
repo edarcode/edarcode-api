@@ -5,7 +5,7 @@ export const createUserController = async (req: Req, res: Res) => {
   try {
     await createUserService(req.body);
     res.status(201).json({ msg: "Usuario creado correctamente" });
-  } catch (error) {
+  } catch (error: any) {
     res.json(error);
   }
 };
