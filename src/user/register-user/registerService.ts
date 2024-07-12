@@ -1,4 +1,4 @@
-import { createUserService } from "../../user/create-user/createUserService";
+import { createUserService } from "../create-user/createUserService";
 
 export const registerService = async (params: Params) => {
   await createUserService(params);
