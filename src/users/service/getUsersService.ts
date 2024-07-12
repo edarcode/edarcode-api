@@ -26,5 +26,5 @@ export type ParamsToGetUsers = {
   take?: number;
   name?: string;
 };
-type Params = ParamsToGetUsers;
+export type Params = ParamsToGetUsers;
 type Where = Prisma.UserWhereInput;

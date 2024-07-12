@@ -1,12 +1,9 @@
-import { Res } from "../../types";
-import { ReqWithParamsGetUsers } from "../dto/getUsersDto";
+import { Req, Res } from "../../types";
 import { getUsersService } from "../service/getUsersService";
 
-type Requ = ReqWithParamsGetUsers;
-
-export const getUsersController = async (req: Requ, res: Res) => {
+export const getUsersController = async (_req: Req, res: Res) => {
   try {
-    const allUsers = await getUsersService(req.paramsToGetUsers);
+    const allUsers = await getUsersService(res.locals);
     res.json(allUsers);
   } catch (error) {
     res.json(error);
