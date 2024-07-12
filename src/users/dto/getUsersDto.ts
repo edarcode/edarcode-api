@@ -1,7 +1,7 @@
 import z from "zod";
-import { Next, Req, Res } from "../../types";
+import { Middleware } from "../../types";
 
-export const getUsersDto = (req: Req, res: Res, next: Next) => {
+export const getUsersDto: Middleware = (req, res, next) => {
   try {
     const paramsToGetUsers = schema.parse(req.query);
     res.locals = paramsToGetUsers;

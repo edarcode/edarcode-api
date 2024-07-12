@@ -1,11 +1,11 @@
-import { Req, Res } from "../../types";
+import { Controller } from "../../types";
 import { getUsersService } from "../service/getUsersService";
 
-export const getUsersController = async (_req: Req, res: Res) => {
+export const getUsersController: Controller = async (_req, res, next) => {
   try {
     const allUsers = await getUsersService(res.locals);
     res.json(allUsers);
   } catch (error) {
-    res.json(error);
+    next(error);
   }
 };

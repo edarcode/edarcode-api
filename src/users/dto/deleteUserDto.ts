@@ -1,7 +1,7 @@
 import z from "zod";
-import { Next, Req, Res } from "../../types";
+import { Middleware } from "../../types";
 
-export const deleteUserDto = (req: Req, res: Res, next: Next) => {
+export const deleteUserDto: Middleware = (req, res, next) => {
   try {
     schema.parse(req.params);
     next();

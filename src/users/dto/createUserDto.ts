@@ -1,8 +1,8 @@
 import { Role } from "@prisma/client";
 import z from "zod";
-import { Next, Req, Res } from "../../types";
+import { Middleware } from "../../types";
 
-export const createUserDto = (req: Req, res: Res, next: Next) => {
+export const createUserDto: Middleware = (req, res, next) => {
   try {
     schema.parse(req.body);
     next();
