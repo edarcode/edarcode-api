@@ -12,5 +12,9 @@ export const errorHandler: ErrorHandler = (error, _req, res, _next) => {
     return res.status(status).json({ msg });
   }
 
+  if (name === "ZodError") {
+    return res.status(400).json(error);
+  }
+
   return res.status(status).json(error);
 };

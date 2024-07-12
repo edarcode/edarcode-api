@@ -2,12 +2,12 @@ import { Role } from "@prisma/client";
 import z from "zod";
 import { Middleware } from "../../types";
 
-export const createUserDto: Middleware = (req, res, next) => {
+export const createUserDto: Middleware = (req, _res, next) => {
   try {
     schema.parse(req.body);
     next();
   } catch (error) {
-    res.status(400).json(error);
+    next(error);
   }
 };
 

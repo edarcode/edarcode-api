@@ -1,11 +1,15 @@
-import { Req, Res } from "../../types";
-import { registerService } from "../service/registerService";
+import { Controller } from "../../types";
+import {
+  ParamsToRegisterUser,
+  registerService,
+} from "../service/registerService";
 
-export const registerController = async (req: Req, res: Res) => {
+export const registerController: Controller = async (_req, res, next) => {
+  const paramsToRegisterUser = res.locals as ParamsToRegisterUser;
   try {
-    await registerService(req.body);
+    await registerService(paramsToRegisterUser);
     res.json({ msg: "Usuario registrado correctamente" });
   } catch (error) {
-    res.json({ msg: error });
+    next(error);
   }
 };

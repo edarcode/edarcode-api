@@ -1,12 +1,13 @@
 import z from "zod";
-import { Next, Req, Res } from "../../types";
+import { Middleware } from "../../types";
 
-export const registerDto = (req: Req, res: Res, next: Next) => {
+export const registerDto: Middleware = (req, res, next) => {
   try {
-    schema.parse(req.body);
+    const paramsToRegisterUser = schema.parse(req.body);
+    res.locals = paramsToRegisterUser;
     next();
   } catch (error) {
-    res.status(400).json(error);
+    next(error);
   }
 };
 
