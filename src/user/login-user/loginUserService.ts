@@ -14,7 +14,7 @@ export const loginUserService = async (params: Params) => {
   if (!isLogged) throw new EdarErr(401, "Invalid login");
 
   const token = jwt.sign(
-    { id: user.id, name: user.name },
+    { id: user.id, role: user.role },
     SECRET_JWT as string,
     {
       expiresIn: "24h",
