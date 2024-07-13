@@ -1,11 +1,10 @@
 import jwt from "jsonwebtoken";
+import { SECRET_JWT } from "../constant/jwt";
 import { EdarErr } from "../error/EdarErr";
-import { SECRET_JWT } from "../server/env";
 import { Middleware } from "../types";
 
 export const verifyToken: Middleware = (req, res, next) => {
   try {
-    console.log(req.headers);
     const token = req.headers.authorization;
     if (!token) throw new EdarErr(401, "Unauthorized token");
 

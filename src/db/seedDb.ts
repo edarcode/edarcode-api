@@ -1,9 +1,10 @@
-import dotenv from "dotenv";
-dotenv.config();
-
 import { Role } from "@prisma/client";
+import bcrypt from "bcrypt";
+import dotenv from "dotenv";
 import z from "zod";
+import { BCRYPT } from "../constant/bcrypt";
 import { connDb } from "./connDb";
+dotenv.config();
 
 seedDb()
   .catch((e) => {
@@ -41,7 +42,9 @@ async function seedDb() {
     return;
   }
 
+  const passHashed = await bcrypt.hash(data.password, BCRYPT.salt);
+
   await connDb.user.create({
-    data: data,
+    data: { ...data, password: passHashed },
   });
 }

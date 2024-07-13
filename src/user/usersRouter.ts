@@ -1,4 +1,6 @@
 import { Router } from "express";
+import { verifyRole } from "../middleware/verifyRole";
+import { verifyToken } from "../middleware/verifyToken";
 import { createUserController } from "./create-user/createUserController";
 import { createUserDto } from "./create-user/createUserDto";
 import { deleteUserController } from "./delete-user/deleteUserController";
@@ -13,10 +15,11 @@ import { updateUserController } from "./update-user/updateUserController";
 import { updateUserDto } from "./update-user/updateUserDto";
 
 export const usersRouter = Router();
+const createMiddles = [verifyToken, verifyRole("BOSS"), createUserDto];
 
-usersRouter.get("", getUsersDto, getUsersController);
-usersRouter.post("", createUserDto, createUserController);
-usersRouter.delete("/:id", deleteUserDto, deleteUserController);
-usersRouter.put("/:id", updateUserDto, updateUserController);
+usersRouter.get("/get", getUsersDto, getUsersController);
+usersRouter.post("/create", createMiddles, createUserController);
+usersRouter.delete("/delete/:id", deleteUserDto, deleteUserController);
+usersRouter.put("/update/:id", updateUserDto, updateUserController);
 usersRouter.post("/register", registerUserDto, registerUserController);
 usersRouter.post("/login", loginUserDto, loginUserController);

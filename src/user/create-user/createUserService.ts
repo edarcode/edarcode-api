@@ -1,9 +1,10 @@
 import { Role } from "@prisma/client";
+import bcrypt from "bcrypt";
+import { BCRYPT } from "../../constant/bcrypt";
 import { connDb } from "../../db/connDb";
-import { hashPassword } from "../utils/hashPassword";
 
 export const createUserService = async (params: Params) => {
-  const passHashed = await hashPassword(params.password);
+  const passHashed = await bcrypt.hash(params.password, BCRYPT.salt);
   await connDb.user.create({
     data: { ...params, password: passHashed },
   });

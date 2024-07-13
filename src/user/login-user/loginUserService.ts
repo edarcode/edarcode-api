@@ -1,8 +1,8 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { JWT } from "../../constant/jwt";
 import { connDb } from "../../db/connDb";
 import { EdarErr } from "../../error/EdarErr";
-import { SECRET_JWT } from "../../server/env";
 
 export const loginUserService = async (params: Params) => {
   const { email } = params;
@@ -15,9 +15,9 @@ export const loginUserService = async (params: Params) => {
 
   const token = jwt.sign(
     { userId: user.id, userRole: user.role },
-    SECRET_JWT as string,
+    JWT.secret as string,
     {
-      expiresIn: "24h",
+      expiresIn: JWT.expiresIn,
     }
   );
 

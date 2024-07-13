@@ -1,13 +1,14 @@
 import { Role } from "@prisma/client";
+import bcrypt from "bcrypt";
+import { BCRYPT } from "../../constant/bcrypt";
 import { connDb } from "../../db/connDb";
 import { Uuid } from "../../types";
-import { hashPassword } from "../utils/hashPassword";
 
 export const updateUserService = async (id: Uuid, params: Params) => {
   const paramsToUpdateUser = params;
 
   if (params.password) {
-    const passHashed = await hashPassword(params.password);
+    const passHashed = await bcrypt.hash(params.password, BCRYPT.salt);
     paramsToUpdateUser.password = passHashed;
   }
 
