@@ -9,9 +9,9 @@ export const verifyToken: Middleware = (req, res, next) => {
     const token = req.headers.authorization;
     if (!token) throw new EdarErr(401, "Unauthorized token");
 
-    jwt.verify(token, SECRET_JWT as string, (err, user) => {
+    jwt.verify(token, SECRET_JWT as string, (err, infoToken) => {
       if (err) throw new EdarErr(403, "Unauthorized token");
-      res.locals = { ...res.locals, user };
+      res.locals = { ...res.locals, infoToken };
       next();
     });
   } catch (error) {

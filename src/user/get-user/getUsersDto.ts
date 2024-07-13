@@ -4,7 +4,7 @@ import { Middleware } from "../../types";
 export const getUsersDto: Middleware = (req, res, next) => {
   try {
     const paramsToGetUsers = schema.parse(req.query);
-    res.locals = paramsToGetUsers;
+    res.locals = { ...res.locals, paramsToGetUsers };
     next();
   } catch (error) {
     res.status(400).json(error);
