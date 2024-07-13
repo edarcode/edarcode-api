@@ -1,19 +1,17 @@
-import { ERROR_CODES_DB } from "../../db/errCodes";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
+import { ZodError } from "zod";
+
 import { ErrorHandler } from "../../types";
 
 export const errorHandler: ErrorHandler = (error, _req, res, _next) => {
-  const { name } = error;
-
-  if (name === "PrismaClientKnownRequestError") {
-    const { code } = error;
-    const keyCode = code as keyof typeof ERROR_CODES_DB;
-    const errCode = ERROR_CODES_DB[keyCode];
-    const msg = errCode?.msg || error;
-    return res.status(400).json({ msg });
+  if (error instanceof PrismaClientKnownRequestError) {
+    const { meta } = error;
+    return res.status(400).json(meta);
   }
 
-  if (name === "ZodError") {
-    return res.status(400).json(error);
+  if (error instanceof ZodError) {
+    const { issues } = error;
+    return res.status(400).json(issues);
   }
 
   return res.status(500).json(error);

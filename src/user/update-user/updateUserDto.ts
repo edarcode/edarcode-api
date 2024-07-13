@@ -20,9 +20,9 @@ const schemaParams = z
 
 const schemaBody = z
   .object({
-    name: z.string(),
+    name: z.string().min(1),
     email: z.string().email(),
-    password: z.string(),
+    password: z.string().min(1),
     isAuth: z.boolean(),
     role: z.enum([Role.ADMIN, Role.CLIENT]),
   })

@@ -13,8 +13,8 @@ export const registerDto: Middleware = (req, res, next) => {
 
 const schema = z
   .object({
-    name: z.string(),
+    name: z.string().min(1),
     email: z.string().email(),
-    password: z.string(),
+    password: z.string().min(1),
   })
   .strict();
