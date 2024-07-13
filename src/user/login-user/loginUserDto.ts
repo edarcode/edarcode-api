@@ -1,10 +1,9 @@
 import z from "zod";
 import { Middleware } from "../../types";
 
-export const registerDto: Middleware = (req, res, next) => {
+export const loginUserDto: Middleware = (req, _res, next) => {
   try {
-    const paramsToRegisterUser = schema.parse(req.body);
-    res.locals = paramsToRegisterUser;
+    schema.parse(req.body);
     next();
   } catch (error) {
     next(error);
@@ -13,7 +12,6 @@ export const registerDto: Middleware = (req, res, next) => {
 
 const schema = z
   .object({
-    name: z.string().min(1),
     email: z.string().email(),
     password: z.string().min(1),
   })

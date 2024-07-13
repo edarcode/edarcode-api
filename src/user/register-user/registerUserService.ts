@@ -1,6 +1,6 @@
 import { createUserService } from "../create-user/createUserService";
 
-export const registerService = async (params: Params) => {
+export const registerUserService = async (params: Params) => {
   await createUserService(params);
 };
 
@@ -9,5 +9,3 @@ type Params = {
   email: string;
   password: string;
 };
-
-export type ParamsToRegisterUser = Params;
