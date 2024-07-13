@@ -11,6 +11,7 @@ import { registerUserController } from "./register-user/registerUserController";
 import { registerUserDto } from "./register-user/registerUserDto";
 import { updateUserController } from "./update-user/updateUserController";
 import { updateUserDto } from "./update-user/updateUserDto";
+
 export const usersRouter = Router();
 
 usersRouter.get("", getUsersDto, getUsersController);

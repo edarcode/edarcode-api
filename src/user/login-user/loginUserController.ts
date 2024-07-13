@@ -3,12 +3,8 @@ import { loginUserService } from "./loginUserService";
 
 export const loginUserController: Controller = async (req, res, next) => {
   try {
-    const user = await loginUserService(req.body);
-    res.json({
-      msg: "User loggged successfully",
-      id: user.id,
-      name: user.name,
-    });
+    const token = await loginUserService(req.body);
+    res.status(201).json({ token });
   } catch (error) {
     next(error);
   }

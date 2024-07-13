@@ -1,6 +1,8 @@
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 import { connDb } from "../../db/connDb";
 import { EdarErr } from "../../error/EdarErr";
+import { SECRET_JWT } from "../../server/env";
 
 export const loginUserService = async (params: Params) => {
   const { email } = params;
@@ -11,7 +13,15 @@ export const loginUserService = async (params: Params) => {
   const isLogged = await bcrypt.compare(params.password, user.password);
   if (!isLogged) throw new EdarErr(401, "Invalid login");
 
-  return { id: user.id, name: user.name };
+  const token = jwt.sign(
+    { id: user.id, name: user.name },
+    SECRET_JWT as string,
+    {
+      expiresIn: "24h",
+    }
+  );
+
+  return token;
 };
 
 type Params = {
