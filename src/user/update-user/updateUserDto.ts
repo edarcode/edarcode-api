@@ -2,13 +2,13 @@ import { Role } from "@prisma/client";
 import z, { string } from "zod";
 import { Middleware } from "../../types";
 
-export const updateUserDto: Middleware = (req, res, next) => {
+export const updateUserDto: Middleware = (req, _res, next) => {
   try {
     schemaParams.parse(req.params);
     schemaBody.parse(req.body);
     next();
   } catch (error) {
-    res.status(400).json(error);
+    next(error);
   }
 };
 
