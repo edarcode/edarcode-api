@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-
 import { JWT } from "../constant/jwt";
 import { EdarErr } from "../error/EdarErr";
 import { Middleware } from "../types";

@@ -21,10 +21,10 @@ export const getUsersService = async (params: Params = {}) => {
   return { page, totalPages, users };
 };
 
-export type ParamsToGetUsers = {
+export type Params = {
   page?: number;
   take?: number;
   name?: string;
 };
-export type Params = ParamsToGetUsers;
+
 type Where = Prisma.UserWhereInput;

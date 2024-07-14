@@ -1,8 +1,8 @@
 import { App } from "../types";
-import { usersRouter } from "../user/usersRouter";
+import { userRouter } from "../user/userRouter";
 import { welcomeRouter } from "../welcome/welcomeRouter";
 
 export const routes = (server: App) => {
   server.use("/", welcomeRouter);
-  server.use("/users", usersRouter);
+  server.use("/user", userRouter);
 };
