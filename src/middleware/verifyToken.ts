@@ -6,7 +6,7 @@ import { Middleware } from "../types";
 export const verifyToken: Middleware = (req, res, next) => {
   try {
     const token = req.headers.authorization;
-    if (!token) throw new EdarErr(401, "Unauthorized token");
+    if (!token) throw new EdarErr(401, "Unauthorized");
 
     jwt.verify(token, JWT.secret as string, (err, infoToken) => {
       if (err) throw new EdarErr(403, "Unauthorized token");
