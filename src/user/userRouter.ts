@@ -1,19 +1,11 @@
+import { Role } from "@prisma/client";
 import { Router } from "express";
-import { loginRouter } from "./auth/login/loginRouter";
-import { signupRouter } from "./auth/signup/signupRouter";
-import { verifySignupRouter } from "./auth/verify-signup/verifySignupRouter";
-import { createUserRouter } from "./create-user/createUserRouter";
-import { deleteUserRouter } from "./delete-user/deleteUserRouter";
-import { getUsersRouter } from "./get-users/getUsersRouter";
-import { modifyUserRouter } from "./modify-user/modifyUserRouter";
+import { verifyToken } from "../middleware/verifyToken";
+import { verifyTokenRole } from "../middleware/verifyTokenRole";
+import { authRouter } from "./auth/authRouter";
+import { bossRouter } from "./boss/bossRouter";
 
 export const userRouter = Router();
 
-userRouter.use("/get", getUsersRouter);
-userRouter.use("/create", createUserRouter);
-userRouter.use("/delete", deleteUserRouter);
-userRouter.use("/modify", modifyUserRouter);
-
-userRouter.use("/signup", signupRouter);
-userRouter.use("/verify-signup", verifySignupRouter);
-userRouter.use("/login", loginRouter);
+userRouter.use("/boss", verifyToken, verifyTokenRole(Role.BOSS), bossRouter);
+userRouter.use("/auth", authRouter);

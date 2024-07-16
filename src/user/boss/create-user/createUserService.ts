@@ -1,7 +1,7 @@
 import { Role } from "@prisma/client";
 import bcrypt from "bcrypt";
-import { BCRYPT } from "../../constant/bcrypt";
-import { connDb } from "../../db/connDb";
+import { BCRYPT } from "../../../constant/bcrypt";
+import { connDb } from "../../../db/connDb";
 
 export const createUserService = async (params: Params) => {
   const { email, name, password, isAuth, role } = params;

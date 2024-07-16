@@ -1,4 +1,4 @@
-import { Controller, Uuid } from "../../types";
+import { Controller, Uuid } from "../../../types";
 import { modifyUserService } from "./modifyUserService";
 
 export const modifyUserController: Controller = async (req, res, next) => {

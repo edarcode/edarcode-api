@@ -1,8 +1,11 @@
 import dotenv from "dotenv";
-import { transporter } from "../../util/transporter";
+import { transporter } from "../../../util/transporter";
 dotenv.config();
 
-export const sendMailToRegisterUser = async (to: string, link: string) => {
+export const sendMailToVerifySignupService = async (
+  to: string,
+  link: string
+) => {
   return await transporter.sendMail({
     from: process.env.TEST_GMAIL,
     to,

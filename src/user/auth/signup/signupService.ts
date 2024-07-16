@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import { JWT } from "../../../constant/jwt";
 import { connDb } from "../../../db/connDb";
 import { EdarErr } from "../../../error/EdarErr";
-import { sendMailToRegisterUser } from "../../util/sendMailToRegisterUser";
+import { sendMailToVerifySignupService } from "./sendMailToVerifySignupService";
 
 dotenv.config();
 
@@ -16,7 +16,7 @@ export const signupService = async (params: Params) => {
   });
 
   const link = `${process.env.API_URL}/user/verify-register/${token}`;
-  await sendMailToRegisterUser(params.email, link);
+  await sendMailToVerifySignupService(params.email, link);
 };
 
 type Params = {

@@ -1,4 +1,4 @@
-import { Controller, Uuid } from "../../types";
+import { Controller, Uuid } from "../../../types";
 import { deleteUserService } from "./deleteUserService";
 
 export const deleteUserController: Controller = async (req, res, next) => {
