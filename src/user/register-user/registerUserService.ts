@@ -18,3 +18,5 @@ type Params = {
   email: string;
   password: string;
 };
+
+export type ParamsToRegisterUser = Params;

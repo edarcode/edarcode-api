@@ -4,9 +4,10 @@ import { BCRYPT } from "../../constant/bcrypt";
 import { connDb } from "../../db/connDb";
 
 export const createUserService = async (params: Params) => {
-  const passHashed = await bcrypt.hash(params.password, BCRYPT.salt);
+  const { email, name, password, isAuth, role } = params;
+  const passHashed = await bcrypt.hash(password, BCRYPT.salt);
   await connDb.user.create({
-    data: { ...params, password: passHashed },
+    data: { email, name, isAuth, role, password: passHashed },
   });
 };
 

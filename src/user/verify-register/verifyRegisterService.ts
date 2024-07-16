@@ -1,9 +1,6 @@
-// export const verifyRegisterService = (params:Params)=>{
+import { createUserService } from "../create-user/createUserService";
+import { ParamsToRegisterUser } from "../register-user/registerUserService";
 
-// }
-
-// type Params = {
-//   name: string;
-//   email: string;
-//   password: string;
-// };
+export const verifyRegisterService = async (params: ParamsToRegisterUser) => {
+  return await createUserService({ ...params, isAuth: true });
+};
