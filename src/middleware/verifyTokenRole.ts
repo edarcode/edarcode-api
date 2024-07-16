@@ -2,7 +2,7 @@ import { Role } from "@prisma/client";
 import { EdarErr } from "../error/EdarErr";
 import { Middleware } from "../types";
 
-export const verifyRole = (role: Role): Middleware => {
+export const verifyTokenRole = (role: Role): Middleware => {
   return (_req, res, next) => {
     try {
       const userRole = res.locals.infoToken.userRole;

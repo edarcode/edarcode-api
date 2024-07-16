@@ -5,10 +5,11 @@ import { connDb } from "../../db/connDb";
 import { Uuid } from "../../types";
 
 export const updateUserService = async (id: Uuid, params: Params) => {
-  const paramsToUpdateUser = params;
+  const { name, email, password, isAuth, role } = params;
+  const paramsToUpdateUser = { name, email, password, isAuth, role };
 
-  if (params.password) {
-    const passHashed = await bcrypt.hash(params.password, BCRYPT.salt);
+  if (password) {
+    const passHashed = await bcrypt.hash(password, BCRYPT.salt);
     paramsToUpdateUser.password = passHashed;
   }
 

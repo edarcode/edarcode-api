@@ -1,10 +1,15 @@
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
 import { JWT } from "../../constant/jwt";
+import { connDb } from "../../db/connDb";
+import { EdarErr } from "../../error/EdarErr";
 import { sendMailToRegisterUser } from "../../nodemailer/utils/sendMailToRegisterUser";
 dotenv.config();
 
 export const registerUserService = async (params: Params) => {
+  const user = await connDb.user.findUnique({ where: { email: params.email } });
+  if (user) throw new EdarErr(400, "Email no disponible");
+
   const token = jwt.sign(params, JWT.secret as string, {
     expiresIn: JWT.expiresIn,
   });

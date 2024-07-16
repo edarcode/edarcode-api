@@ -6,8 +6,8 @@ import { ErrorHandler } from "../../types";
 
 export const errorHandler: ErrorHandler = (error, _req, res, _next) => {
   if (error instanceof PrismaClientKnownRequestError) {
-    const { meta } = error;
-    return res.status(400).json(meta);
+    const { meta, code } = error;
+    return res.status(400).json({ code, meta });
   }
 
   if (error instanceof ZodError) {
