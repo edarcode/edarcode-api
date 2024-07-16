@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { createUserRouter } from "./create-user/createUserRouter";
 import { deleteUserRouter } from "./delete-user/deleteUserRouter";
-import { getUsersRouter } from "./get-user/getUsersRouter";
+import { getUsersRouter } from "./get-users/getUsersRouter";
 import { loginRouter } from "./login/loginRouter";
 import { modifyUserRouter } from "./modify-user/modifyUserRouter";
 import { signupRouter } from "./signup/signupRouter";
