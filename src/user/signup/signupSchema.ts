@@ -3,7 +3,7 @@ import { emailSchema } from "../../zod-schema/emailSchema";
 import { nameSchema } from "../../zod-schema/nameSchema";
 import { passwordSchema } from "../../zod-schema/passwordSchema";
 
-export const registerUserSchema = z
+export const signupSchema = z
   .object({
     name: nameSchema,
     email: emailSchema,

@@ -4,10 +4,9 @@ import { JWT } from "../../constant/jwt";
 import { connDb } from "../../db/connDb";
 import { EdarErr } from "../../error/EdarErr";
 import { sendMailToRegisterUser } from "../util/sendMailToRegisterUser";
-
 dotenv.config();
 
-export const registerUserService = async (params: Params) => {
+export const signupService = async (params: Params) => {
   const user = await connDb.user.findUnique({ where: { email: params.email } });
   if (user) throw new EdarErr(400, "Email no disponible");
 

@@ -5,18 +5,18 @@ import { verifyParams } from "../../middleware/verifyParams";
 import { verifyToken } from "../../middleware/verifyToken";
 import { verifyTokenRole } from "../../middleware/verifyTokenRole";
 import { paramsWithIdSchema } from "../../zod-schema/paramsWithIdSchema";
-import { updateUserController } from "./updateUserController";
-import { updateUserSchema } from "./updateUserSchema";
+import { modifyUserController } from "./modifyUserController";
+import { modifyUserSchema } from "./modifyUserSchema";
 
-export const updateUserRouter = Router();
+export const modifyUserRouter = Router();
 
-updateUserRouter.put(
+modifyUserRouter.put(
   "/:id",
   [
     verifyToken,
     verifyTokenRole(Role.BOSS),
     verifyParams(paramsWithIdSchema),
-    verifyBody(updateUserSchema),
+    verifyBody(modifyUserSchema),
   ],
-  updateUserController
+  modifyUserController
 );

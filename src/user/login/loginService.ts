@@ -4,7 +4,7 @@ import { JWT } from "../../constant/jwt";
 import { connDb } from "../../db/connDb";
 import { EdarErr } from "../../error/EdarErr";
 
-export const loginUserService = async (params: Params) => {
+export const loginService = async (params: Params) => {
   const { email } = params;
 
   const user = await connDb.user.findUnique({ where: { email } });

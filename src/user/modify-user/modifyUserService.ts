@@ -4,7 +4,7 @@ import { BCRYPT } from "../../constant/bcrypt";
 import { connDb } from "../../db/connDb";
 import { Uuid } from "../../types";
 
-export const updateUserService = async (id: Uuid, params: Params) => {
+export const modifyUserService = async (id: Uuid, params: Params) => {
   const { name, email, password, isAuth, role } = params;
   const paramsToUpdateUser = { name, email, password, isAuth, role };
 

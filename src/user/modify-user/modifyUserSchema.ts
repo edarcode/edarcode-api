@@ -4,7 +4,7 @@ import { nameSchema } from "../../zod-schema/nameSchema";
 import { passwordSchema } from "../../zod-schema/passwordSchema";
 import { roleSchema } from "../../zod-schema/roleSchema";
 
-export const updateUserSchema = z
+export const modifyUserSchema = z
   .object({
     name: nameSchema,
     email: emailSchema,
