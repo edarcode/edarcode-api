@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { verifyBody } from "../../middleware/verifyBody";
+import { verifyBody } from "../../../middleware/verifyBody";
 import { loginController } from "./loginController";
 import { loginSchema } from "./loginSchema";
 

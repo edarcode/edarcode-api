@@ -1,11 +1,11 @@
 import { Router } from "express";
+import { loginRouter } from "./auth/login/loginRouter";
+import { signupRouter } from "./auth/signup/signupRouter";
+import { verifySignupRouter } from "./auth/verify-signup/verifySignupRouter";
 import { createUserRouter } from "./create-user/createUserRouter";
 import { deleteUserRouter } from "./delete-user/deleteUserRouter";
 import { getUsersRouter } from "./get-users/getUsersRouter";
-import { loginRouter } from "./login/loginRouter";
 import { modifyUserRouter } from "./modify-user/modifyUserRouter";
-import { signupRouter } from "./signup/signupRouter";
-import { verifySignupRouter } from "./verify-signup/verifySignupRouter";
 
 export const userRouter = Router();
 

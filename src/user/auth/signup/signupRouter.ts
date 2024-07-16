@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { verifyBody } from "../../middleware/verifyBody";
+
+import { verifyBody } from "../../../middleware/verifyBody";
 import { signupController } from "./signupController";
 import { signupSchema } from "./signupSchema";
 
