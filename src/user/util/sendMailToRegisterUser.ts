@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { transporter } from "../transporter";
+import { transporter } from "../../util/transporter";
 dotenv.config();
 
 export const sendMailToRegisterUser = async (to: string, link: string) => {

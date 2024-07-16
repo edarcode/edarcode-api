@@ -7,7 +7,7 @@ import { EdarErr } from "../../error/EdarErr";
 export const loginUserService = async (params: Params) => {
   const { email } = params;
 
-  const user = await connDb.user.findFirst({ where: { email } });
+  const user = await connDb.user.findUnique({ where: { email } });
   if (!user) throw new EdarErr(401, "Invalid login");
 
   const isLogged = await bcrypt.compare(params.password, user.password);
