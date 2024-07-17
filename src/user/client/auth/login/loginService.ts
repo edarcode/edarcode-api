@@ -1,8 +1,8 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { connDb } from "../../../../db/connDb";
+import { JWT } from "../../../../constant/jwt";
 import { EdarErr } from "../../../../error/EdarErr";
-import { JWT } from "../../../../jwt/jwt";
 
 export const loginService = async (params: Params) => {
   const { email } = params;

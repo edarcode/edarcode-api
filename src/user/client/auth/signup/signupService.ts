@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
 import { connDb } from "../../../../db/connDb";
+import { JWT } from "../../../../constant/jwt";
 import { EdarErr } from "../../../../error/EdarErr";
-import { JWT } from "../../../../jwt/jwt";
 import { sendMailToVerifySignupService } from "./sendMailToVerifySignupService";
 
 dotenv.config();

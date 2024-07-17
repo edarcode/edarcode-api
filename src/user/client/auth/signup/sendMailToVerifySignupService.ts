@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { transporter } from "../../../../nodemailer/transporter";
+import { transporter } from "../../../../service/transporter";
 dotenv.config();
 
 export const sendMailToVerifySignupService = async (
