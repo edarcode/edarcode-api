@@ -2,7 +2,7 @@ import { Role } from "@prisma/client";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 import z from "zod";
-import { BCRYPT } from "../constant/bcrypt";
+import { BCRYPT } from "../bcrypt/bcrypt";
 import { connDb } from "./connDb";
 dotenv.config();
 

@@ -1,6 +1,6 @@
 import { Role } from "@prisma/client";
 import bcrypt from "bcrypt";
-import { BCRYPT } from "../../../constant/bcrypt";
+import { BCRYPT } from "../../../bcrypt/bcrypt";
 import { connDb } from "../../../db/connDb";
 import { Uuid } from "../../../types";
 

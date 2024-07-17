@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { transporter } from "../../../../util/transporter";
+import { transporter } from "../../../../nodemailer/transporter";
 dotenv.config();
 
 export const sendMailToVerifySignupService = async (
@@ -9,7 +9,7 @@ export const sendMailToVerifySignupService = async (
   return await transporter.sendMail({
     from: process.env.TEST_GMAIL,
     to,
-    subject: "verify email to register in edarcode-api 💪",
-    html: `<a href=${link} style="color: royalblue">Click me to verify email</a>`,
+    subject: "Verify email to signup in edarcode-api 💪",
+    html: `<a href=${link} style="color: royalblue">Click me to verify signup</a>`,
   });
 };
