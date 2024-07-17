@@ -1,11 +1,8 @@
-import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
-import { connDb } from "../../../../db/connDb";
 import { JWT } from "../../../../constant/jwt";
+import { connDb } from "../../../../db/connDb";
 import { EdarErr } from "../../../../error/EdarErr";
 import { sendMailToVerifySignupService } from "./sendMailToVerifySignupService";
-
-dotenv.config();
 
 export const signupService = async (params: Params) => {
   const user = await connDb.user.findUnique({ where: { email: params.email } });

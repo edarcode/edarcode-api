@@ -1,10 +1,9 @@
 import { Role } from "@prisma/client";
 import bcrypt from "bcrypt";
-import dotenv from "dotenv";
 import z from "zod";
-import { BCRYPT } from "../bcrypt/bcrypt";
+import { BCRYPT } from "../constant/bcrypt";
+import "../service/dotenv";
 import { connDb } from "./connDb";
-dotenv.config();
 
 seedDb()
   .catch((e) => {
