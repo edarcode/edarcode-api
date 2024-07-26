@@ -10,6 +10,7 @@ import { modifyUserRouter } from "./modify-user/modifyUserRouter";
 export const bossRouter = Router();
 
 bossRouter.use(verifyToken, verifyTokenRole(Role.BOSS));
+
 bossRouter.use("/get", getUsersRouter);
 bossRouter.use("/create", createUserRouter);
 bossRouter.use("/delete", deleteUserRouter);
