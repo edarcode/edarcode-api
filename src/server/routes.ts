@@ -3,6 +3,6 @@ import { userRouter } from "../user/userRouter";
 import { welcomeRouter } from "../welcome/welcomeRouter";
 
 export const routes = (server: App) => {
-  server.use("/", welcomeRouter);
-  server.use("/user", userRouter);
+  server.use("/api/", welcomeRouter);
+  server.use("/api/user", userRouter);
 };
