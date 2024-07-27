@@ -100,7 +100,7 @@ Debe proporcionar un correo real dado que se enviará un mensaje de confirmació
 
 #### boss
 
-Tener presente enviar el token por **headers** con la key **Authorization**
+Debe enviar el token por **headers** con la key **Authorization** para las rutas boss, además debe tener role BOSS
 
 - GET http://localhost:3000/user/boss/get
 
@@ -133,3 +133,7 @@ Tener presente enviar el token por **headers** con la key **Authorization**
 ```
 
 - POST http://localhost:3000/user/boss/delete/:id
+
+```
+
+```
