@@ -1,4 +1,4 @@
-import "../src/service/dotenv";
+import "./service/dotenv";
 import { PORT, SERVER_ON } from "./server/consts";
 import { server } from "./server/server";
 
