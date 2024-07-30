@@ -21,7 +21,7 @@ export const loginService = async (params: Params) => {
     }
   );
 
-  return token;
+  return { token, name: user.name };
 };
 
 type Params = {
