@@ -98,6 +98,14 @@ Debe proporcionar un correo real dado que se enviará un mensaje de confirmació
 }
 ```
 
+- POST http://localhost:3000/user/client/auth/refresh-token
+
+ocupa que envies un token valido para poder enviar un nuevo token
+
+```
+
+```
+
 #### boss
 
 Debe enviar el token por **headers** con la key **Authorization** para las rutas boss, además debe tener role BOSS
