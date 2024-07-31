@@ -14,14 +14,14 @@ export const loginService = async (params: Params) => {
   if (!isLogged) throw new EdarErr(401, "Invalid login");
 
   const token = jwt.sign(
-    { userId: user.id, userRole: user.role },
+    { id: user.id, role: user.role, name: user.name, email: user.email },
     JWT.secret as string,
     {
       expiresIn: JWT.expiresIn,
     }
   );
 
-  return { token, name: user.name };
+  return token;
 };
 
 type Params = {

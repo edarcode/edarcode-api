@@ -3,8 +3,8 @@ import { loginService } from "./loginService";
 
 export const loginController: Controller = async (req, res, next) => {
   try {
-    const userInfo = await loginService(req.body);
-    res.status(201).json(userInfo);
+    const token = await loginService(req.body);
+    res.status(201).json({ token });
   } catch (error) {
     next(error);
   }
