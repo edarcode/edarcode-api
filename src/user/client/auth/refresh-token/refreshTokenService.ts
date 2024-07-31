@@ -4,10 +4,11 @@ import { JWT } from "../../../../constant/jwt";
 export const refreshTokenService = (token: string) => {
   const infoToken = jwt.decode(token) as JwtPayload;
 
-  if (infoToken.exp) delete infoToken.exp;
-  if (infoToken.iat) delete infoToken.exp;
+  const newInfoToken = { ...infoToken };
+  if (newInfoToken.iat) delete newInfoToken.iat;
+  if (newInfoToken.exp) delete newInfoToken.exp;
 
-  const newToken = jwt.sign(infoToken, JWT.secret as string, {
+  const newToken = jwt.sign(newInfoToken, JWT.secret as string, {
     expiresIn: JWT.expiresIn,
   });
 
