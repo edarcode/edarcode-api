@@ -13,20 +13,20 @@
 
 ## Requisitos
 
-Debe tener la database lista para consumir y configurar las variables de entorno. Cree el archivo .env en la raíz del proyecto
+Debe tener la database lista para consumir y configurar las variables de entorno. Cree el archivo .env en la raíz del proyecto y dígite las sgt variable de entorno:
 
 ```
 DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=public"
 ```
 
-- **USER:** El nombre del usuario de su base de datos
-- **PASSWORD:** La contraseña para el usuario de su base de datos
-- **HOST:** El nombre de su host (para el entorno local, es localhost)
-- **PORT:** El puerto donde se ejecuta su servidor de base de datos (normalmente 5432para PostgreSQL)
-- **DATABASE:** El nombre de la base de datos
-- **SCHEMA:** El nombre del esquema dentro de la base de datos
+- **USER:** nombre del usuario de su base de datos
+- **PASSWORD:** contraseña para el usuario de su base de datos
+- **HOST:** nombre de su host (para el entorno local, es localhost)
+- **PORT:** puerto donde se ejecuta su servidor de base de datos (normalmente 5432para PostgreSQL)
+- **DATABASE:** nombre de la base de datos
+- **SCHEMA:** nombre del esquema dentro de la base de datos
 
-Otras variables de entorno necesarias
+Otras variables de entorno necesarias:
 
 ```
 PORT=3000
@@ -85,7 +85,7 @@ Debe proporcionar un correo real dado que se enviará un mensaje de confirmació
 {
   "name": "edarcode",
   "email": "correo@gmail.com",
-  "password": "123"
+  "password": "******"
 }
 ```
 
@@ -94,7 +94,7 @@ Debe proporcionar un correo real dado que se enviará un mensaje de confirmació
 ```
 {
   "email": "correo@gmail.com",
-  "password": "123"
+  "password": "******"
 }
 ```
 
@@ -122,7 +122,7 @@ Debe enviar el token por **headers** con la key **Authorization** para las rutas
 {
   "name": "fake",
   "email": "fake@gmail.com",
-  "password": "123",
+  "password": "123456",
   "isAuth": true,
   "role": "CLIENT"
 }
@@ -134,7 +134,7 @@ Debe enviar el token por **headers** con la key **Authorization** para las rutas
 {
   "name": "fake two",
   "email": "fake2@gmail.com",
-  "password": "1234",
+  "password": "edar123",
   "isAuth": false,
   "role": "ADMIN"
 }
